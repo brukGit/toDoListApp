@@ -27,54 +27,78 @@ body{
     align-content: center;
     margin-bottom: 20px;
 }
-.prio1{
+// }
+// .prio1{
    
-    background-color: cs.$bg-color-tasks;
-    color: red;
-    font-size: 120%;
-    font-weight: bold;
-    text-transform: uppercase;
-    display: flex;
-    flex-wrap: wrap;
-    flex-grow: 1;
-    padding: 10px;
-    // flex-direction: row;
-    justify-content: center;
-    overflow: auto; 
-}
-.prio2{
-    @extend .prio1;
-    color: darkred;    
-}
-.prio3{
-    @extend .prio1;
-    color: orangered;    
-}
-.prio4{
-    @extend .prio1;
-    color: orange;
-}
-.prio5{
-    @extend .prio1;
-    color: seagreen;
-}
+//     background-color: cs.$bg-color-tasks;
+//     color: red;
+//     font-size: 120%;
+//     font-weight: bold;
+//     text-transform: uppercase;
+//     display: flex;
+//     flex-wrap: wrap;
+//     flex-grow: 1;
+//     padding: 10px;
+//     // flex-direction: row;
+//     justify-content: center;
+//     overflow: auto; 
+// }
+// .prio2{
+//     @extend .prio1;
+//     color: darkred;    
+// }
+// .prio3{
+//     @extend .prio1;
+//     color: orangered;    
+// }
+// .prio4{
+//     @extend .prio1;
+//     color: orange;
+// }
+// .prio5{
+//     @extend .prio1;
+//     color: seagreen;
+// }
 
 
-.priobullets {
-    font-weight: 200;
-    color: cs.$color-details;
-    background-color: cs.$bg-color-bullets;
-    text-transform: capitalize;
+// .priobullets {
+//     font-weight: 200;
+//     color: cs.$color-details;
+//     background-color: cs.$bg-color-bullets;
+//     text-transform: capitalize;
+    
+// }
+li.hidden {
+    opacity: 0;
+    transition: 1s opacity;
+}
+li.show {
+    opacity: 1;
+}
+button.removetasks {
+    overflow: hidden;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+}
+button.removetask>img{
+    // opacity: 0;
+    height: 20px;
+    width: 20px;
     
 }
-.report {
-    @extend .priobullets;
-    background-color: yellow;
-    color: #222;
-    width: 50%;
-    text-align: center;
-    margin: 10px auto;
+
+button.removetask:hover{
+    cursor: pointer;
 }
+// .report {
+//     @extend .priobullets;
+//     background-color: yellow;
+//     color: #222;
+//     width: 50%;
+//     text-align: center;
+//     margin: 10px auto;
+// }
 
 .task-input{
     display: grid;       
@@ -127,7 +151,4 @@ body{
     // div#load{
     //     align-content: end;
     // }
-}
-.sample {
-    color: whitesmoke;
 }

@@ -23,49 +23,29 @@ body {
   margin-bottom: 20px;
 }
 
-.prio1, .prio5, .prio4, .prio3, .prio2 {
-  background-color: whitesmoke;
-  color: red;
-  font-size: 120%;
-  font-weight: bold;
-  text-transform: uppercase;
-  display: flex;
-  flex-wrap: wrap;
-  flex-grow: 1;
-  padding: 10px;
-  justify-content: center;
-  overflow: auto;
+li.hidden {
+  opacity: 0;
+  transition: 1s opacity;
 }
 
-.prio2 {
-  color: darkred;
+li.show {
+  opacity: 1;
 }
 
-.prio3 {
-  color: orangered;
-}
-
-.prio4 {
-  color: orange;
-}
-
-.prio5 {
-  color: seagreen;
-}
-
-.priobullets, .report {
-  font-weight: 200;
-  color: #222;
-  background-color: khaki;
-  text-transform: capitalize;
-}
-
-.report {
-  background-color: yellow;
-  color: #222;
-  width: 50%;
+button.removetasks {
+  overflow: hidden;
+  height: 30px;
+  width: 30px;
   text-align: center;
-  margin: 10px auto;
+}
+
+button.removetask > img {
+  height: 20px;
+  width: 20px;
+}
+
+button.removetask:hover {
+  cursor: pointer;
 }
 
 .task-input {
@@ -115,8 +95,4 @@ body {
   .task-input {
     grid-template-columns: 80%;
   }
-}
-
-.sample {
-  color: whitesmoke;
 }/*# sourceMappingURL=style.css.map */
