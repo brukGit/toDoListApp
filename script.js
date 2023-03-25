@@ -34,33 +34,54 @@ displayDate();
 // 'prio3','prio3bul','prio4','prio4bul','prio5','prio5bul']
 
  var elReport = document.getElementById('reportlimit');
+ function removeTask(event) {
+    // console.log(event)
+    // console.log(event.target)
+    event.target.parentElement.remove()
+    
+       
+    }
 
 // Define function that looks for user inputs
 function addTask(){
-    let elTask = document.querySelectorAll('ol.task-main li')
-    // console.log(elTask)
-    if (index >=10) {
-        elReport.innerHTML = 'Maximum tasks for the day reached. Please go ahead! :) '
+    let elTask = document.querySelector('ol.task-main')
+    let elList = document.createElement('li')
+
+    if(index%2!=0){
+        let elUlist = document.createElement('ul')
+        elList.innerText = elUI.value
+        elUlist.append(elList)
+       // bullet poins categroy
+        let elsubtasks = document.querySelectorAll('li')
+        console.log(elsubtasks)
+        elsubtasks.item(index-1).append(elUlist)
+
     }
     else {
-        
-        
-        
-        elTask.item(index).prepend(elUI.value);
-        elTask.item(index).classList.add('show')       
-        console.log(elUI)  
-        elUI.value = '';       
-        }
-                        
-        index++;
-        if (index%2==0){
-            elUI.placeholder = 'insert task'
-        }
-        else {
-            elUI.placeholder = 'insert bullets'
-        }
-         
-          
+        elList.innerText = elUI.value
+        elTask.append(elList)
+        console.log(elTask)
+
+        let elImg = document.createElement('img')
+        elImg.src = "images/trash_can.png"
+        elImg.setAttribute('class', 'delete_task')
+        elTask.append(elImg)
+
+        elRemoveImg = document.querySelectorAll('img.delete_task')
+        elRemoveImg.forEach((remove) => {
+            remove.addEventListener('click',(event) => {
+                // event.stopPropagation()
+                // console.log('img event triggered.')
+                removeTask(event)
+                
+                
+            })
+        })
+        // console.log(elRemoveImg)
+    }
+    index++;
+    // elUI.value = '';
+    
 }
 
 function setup(){
@@ -83,42 +104,11 @@ elSave.addEventListener('click', (event) => {
 }, false)
 
 
-function removeTask(event) {
-    // console.log(event)
-    if(event.target.tagName == 'IMG'){
-        event.target.parentElement.parentElement.remove()
-        // console.log(event.target.tagName)   
-        
-    }
-    else {
-        event.target.parentElement.remove()
-        // console.log('button event.')
-      
-       
-        
-    }
-    
-    console.log(event)
-    // event.target.parentElement.remove()
-}
 
-// add event to delete button
-let elRemoveTask = document.querySelectorAll('button.removetask')
-let elRemoveImg = document.querySelectorAll('button.removetask img')
-// elRemoveImg.forEach((remove))
 
-elRemoveTask.forEach((remove) => {
-    remove.addEventListener('click',(event) => {
-        removeTask(event)
-        console.log('button event')
-    })
-})
-elRemoveImg.forEach((remove) => {
-    remove.addEventListener('click',(event) => {
-        event.stopPropagation()
-        removeTask(event)
-        
-        
-    })
-})
+
+
+// Deleting task lists.
+let elRemoveImg = document.querySelectorAll('img.delete_task')
+
 

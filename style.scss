@@ -75,20 +75,15 @@ li.hidden {
 li.show {
     opacity: 1;
 }
-button.removetasks {
-    overflow: hidden;
-    height: 30px;
-    width: 30px;
-    text-align: center;
-}
-button.removetask>img{
+
+img.delete_task{
     // opacity: 0;
     height: 20px;
     width: 20px;
     
 }
 
-button.removetask:hover{
+img.delete_task:hover{
     cursor: pointer;
 }
 // .report {
