@@ -13,87 +13,68 @@ body{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 120%;
     text-align: center;
+    
 }
 .header {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 .task-container {
     display: grid;
     grid-template-columns: 50%;
-    // display: flex;
-    // flex-direction: column;
-    // flex-wrap: wrap;
     justify-content: center;
     align-content: center;
     margin-bottom: 20px;
 }
-// }
-// .prio1{
+
+
+li.taskTitle {
+    // display: inline-block;
+    display: grid;
+    grid-template-columns: 2fr 10%;
+    justify-content: left;
+    text-align: left;
+    list-style: decimal-leading-zero;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #353333;
+    margin-bottom: 1%;
    
-//     background-color: cs.$bg-color-tasks;
-//     color: red;
-//     font-size: 120%;
-//     font-weight: bold;
-//     text-transform: uppercase;
-//     display: flex;
-//     flex-wrap: wrap;
-//     flex-grow: 1;
-//     padding: 10px;
-//     // flex-direction: row;
-//     justify-content: center;
-//     overflow: auto; 
-// }
-// .prio2{
-//     @extend .prio1;
-//     color: darkred;    
-// }
-// .prio3{
-//     @extend .prio1;
-//     color: orangered;    
-// }
-// .prio4{
-//     @extend .prio1;
-//     color: orange;
-// }
-// .prio5{
-//     @extend .prio1;
-//     color: seagreen;
-// }
+}
 
-
-// .priobullets {
-//     font-weight: 200;
-//     color: cs.$color-details;
-//     background-color: cs.$bg-color-bullets;
-//     text-transform: capitalize;
+ul.subTask {
+    color: khaki;
+    text-align: left;
+    background-color: none;
+    li {
+        list-style: disc;
+        // font-size: 100%;
+        font-weight: normal;
+        font-size: normal;
+        text-transform: none;
+        
+    }
     
-// }
-li.hidden {
-    opacity: 0;
-    transition: 1s opacity;
 }
-li.show {
-    opacity: 1;
-}
-
-img.delete_task{
-    // opacity: 0;
+div.delImgContainer{
+    // display: inline-block;
+    justify-content: center;
+    align-items: center;
+   
+    
+    }
+img.deleteTask{
     height: 20px;
     width: 20px;
-    
+     
+    }
+img.stopprop{
+    background-color: khaki;
 }
-
-img.delete_task:hover{
+img.deleteTask:hover{
     cursor: pointer;
 }
-// .report {
-//     @extend .priobullets;
-//     background-color: yellow;
-//     color: #222;
-//     width: 50%;
-//     text-align: center;
-//     margin: 10px auto;
-// }
+
+
 
 .task-input{
     display: grid;       
@@ -105,6 +86,9 @@ img.delete_task:hover{
     border-top: 4px solid seagreen;
     border-bottom: 2px solid seagreen; 
     background-color: coral;
+    position: absolute;
+    top: 70%;
+    left: 25%;
 
     textarea{
         padding: 5px 10px 5px 10px;
