@@ -17,6 +17,10 @@ body{
 }
 .header {
     margin-bottom: 20px;
+    background: radial-gradient( rgb(64, 75, 69), #222);
+    background-color: rgb(64, 75, 69);
+    width: 80%;
+    margin: 0 10% 20px 10%;
 }
 .task-container {
     display: grid;
@@ -38,6 +42,18 @@ li.taskTitle {
     text-transform: uppercase;
     background-color: #353333;
     margin-bottom: 1%;
+
+    // Adapt so long texts can start on new-line
+    // as they hit the edge of the li box or grid.
+   
+    // set minimum and maximum row size for the cells.
+    // this applies to both div and ul inside of it.
+    grid-auto-rows: minmax(20px, auto);
+    word-wrap: break-word;
+
+    // white-space: pre-wrap;
+    // last resort, use word-break: break all.
+    // word-break: break-all;
    
 }
 
@@ -45,15 +61,17 @@ ul.subTask {
     color: khaki;
     text-align: left;
     background-color: none;
+     
+    
     li {
         list-style: disc;
         // font-size: 100%;
         font-weight: normal;
         font-size: normal;
-        text-transform: none;
+        text-transform: none;  
         
     }
-    
+   
 }
 div.delImgContainer{
     // display: inline-block;
@@ -87,7 +105,7 @@ img.deleteTask:hover{
     border-bottom: 2px solid seagreen; 
     background-color: coral;
     position: absolute;
-    top: 70%;
+    bottom: 0;
     left: 25%;
 
     textarea{
@@ -127,7 +145,26 @@ img.deleteTask:hover{
     @include mq.mobileScreen{
         grid-template-columns: 80%;
     }
-    // div#load{
-    //     align-content: end;
-    // }
+    
+
+    
+}
+.task-input-move{
+    @extend .task-input;
+    // position: relative;
+    animation-name: move_task forwards;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    bottom: -200px;
+    // left: 0;
+
+}
+@keyframes move-task {
+    0% {
+        transform: translateY(0)
+    }
+    100%{
+        transform: translateY(100px);
+    }
 }

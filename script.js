@@ -2,9 +2,6 @@
  today = new Date();
  elDate = document.getElementById('date');
 
-
- 
-
  // Display date
  function displayDate(){
     date = today.getDate();
@@ -50,21 +47,30 @@ function addTask(){
 
     if(index%2!=0){
         let elUlist = document.createElement('ul')
-        elList.innerText = elUI.value
+       
+        const items = elUI.value.split("\n");
+        let html = "";
+        for (let i = 0; i < items.length; i++) {
+            // see if new line has content.
+            if(items[i].length>0){
+                html += "<li>" + items[i] + "</li>";
+            }        
+        }
+        elList.innerHTML = html;
         elUlist.setAttribute('class','subTask')
         elUlist.append(elList)
+
+        
        // bullet poins categroy
-        let elsubtasks = document.querySelectorAll('li')
-        // console.log(elsubtasks)
-        elsubtasks.item(index-1).append(elUlist)
+        let elsubtasks = document.querySelectorAll('li.taskTitle')
+        console.log(elsubtasks)
+        elsubtasks[(index-1)/2].append(elUlist)
 
         elUI.placeholder = 'New task title..'
 
     }
     else {
-        // let textDiv = document.createElement('em')
-        // textDiv.innerText = elUI.value
-        // elList.append(textDiv)
+       
         elList.innerText = elUI.value 
         elList.setAttribute('class','taskTitle') 
 
@@ -104,16 +110,35 @@ function addTask(){
     elUI.value = ''
     //refocus on textArea
     setup()
+    // See if the text area should move down the window
+    let elTaskContainer = document.querySelector('.task-container')
+    let elTaskInputs = document.querySelector('.task-input')
+    let elReport = document.getElementById('reportlimit')
+    // elReport.innerText = elTaskContainer.offsetHeight
+    
+    let bottomOfTaskContainer = elTaskContainer.getBoundingClientRect().bottom
+    let topOfTaskInputs = elTaskInputs.getBoundingClientRect().top
+    
+    elReport.innerText = bottomOfTaskContainer + ', ' + topOfTaskInputs
+    if (bottomOfTaskContainer >= topOfTaskInputs-50){
+        // How to access the move attributes - positioning?
+        elTaskInputs.classList.add('task-input-move')
+        
+    }
+   
+    
+   
    
 }
 
 function setup(){
     elUI.focus();
 }
-var elUI = document.getElementById('tasksUI');
+
+let elUI = document.getElementById('tasksUI');
+// focus on text area when page loads.
 window.addEventListener('load',setup(),false)
 
-//add event to save button
 
 let index = 0;
 let n_times = 0;
@@ -126,6 +151,7 @@ elSave.addEventListener('click', (event) => {
         
         addTask()
         // console.log(event.target)
+       
     }
     
 }, false)
@@ -137,6 +163,13 @@ elTask.addEventListener('click',(event)=> {
         removeTask(event)
     }
 })
+
+
+
+// elTaskContainer.addEventListener('')
+
+ 
+       
 
 
 

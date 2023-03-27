@@ -13,6 +13,10 @@ body {
 
 .header {
   margin-bottom: 20px;
+  background: radial-gradient(rgb(64, 75, 69), #222);
+  background-color: rgb(64, 75, 69);
+  width: 80%;
+  margin: 0 10% 20px 10%;
 }
 
 .task-container {
@@ -33,6 +37,8 @@ li.taskTitle {
   text-transform: uppercase;
   background-color: #353333;
   margin-bottom: 1%;
+  grid-auto-rows: minmax(20px, auto);
+  word-wrap: break-word;
 }
 
 ul.subTask {
@@ -65,7 +71,7 @@ img.deleteTask:hover {
   cursor: pointer;
 }
 
-.task-input {
+.task-input, .task-input-move {
   display: grid;
   width: 50%;
   margin: 20px auto;
@@ -76,10 +82,10 @@ img.deleteTask:hover {
   border-bottom: 2px solid seagreen;
   background-color: coral;
   position: absolute;
-  top: 70%;
+  bottom: 0;
   left: 25%;
 }
-.task-input textarea {
+.task-input textarea, .task-input-move textarea {
   padding: 5px 10px 5px 10px;
   margin: 10px;
   height: 100px;
@@ -90,11 +96,11 @@ img.deleteTask:hover {
   text-indent: 10px;
 }
 @media screen and (max-width: 900px) {
-  .task-input textarea {
+  .task-input textarea, .task-input-move textarea {
     width: 90%;
   }
 }
-.task-input button {
+.task-input button, .task-input-move button {
   font-weight: bold;
   border-radius: 5px;
   width: 100%;
@@ -103,16 +109,33 @@ img.deleteTask:hover {
   background-color: seagreen;
 }
 @media screen and (max-width: 900px) {
-  .task-input button {
+  .task-input button, .task-input-move button {
     width: 40%;
   }
 }
-.task-input button:hover {
+.task-input button:hover, .task-input-move button:hover {
   background-color: yellow;
   cursor: pointer;
 }
 @media screen and (max-width: 900px) {
-  .task-input {
+  .task-input, .task-input-move {
     grid-template-columns: 80%;
+  }
+}
+
+.task-input-move {
+  animation-name: move_task forwards;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+  bottom: -200px;
+}
+
+@keyframes move-task {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100px);
   }
 }/*# sourceMappingURL=style.css.map */
