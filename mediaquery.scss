@@ -1,6 +1,6 @@
 // media query
 @mixin mobileScreen {
-    @media screen and (max-width:900px){
+    @media screen and (max-width:960px){
         @content;
         
     }

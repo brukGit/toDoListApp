@@ -13,24 +13,87 @@ body {
 
 .header {
   margin-bottom: 20px;
-  background: radial-gradient(rgb(64, 75, 69), #222);
-  background-color: rgb(64, 75, 69);
+  background: linear-gradient(to right, #222, khaki, whitesmoke, #222);
   width: 80%;
   margin: 0 10% 20px 10%;
+  color: #222;
+}
+.header h1 {
+  color: seagreen;
+}
+
+section.containerAll {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 40px 20px 40px;
+  justify-content: center;
+  align-items: center;
 }
 
 .task-container {
-  display: grid;
-  grid-template-columns: 50%;
+  flex: 1 0 50%;
   justify-content: center;
   align-content: center;
-  margin-bottom: 20px;
+  min-height: 50vh;
+  padding: 10px;
+  border: 2px solid salmon;
+}
+
+.task-input {
+  flex: 1 0 30%;
+  display: grid;
+  grid-template-columns: 1.6fr 0.5fr;
+  justify-content: center;
+  align-content: center;
+  background-color: rgb(6, 82, 82);
+  border: 2px solid rgb(6, 82, 82);
+}
+@media screen and (max-width: 960px) {
+  .task-input {
+    grid-template-columns: auto;
+    margin-top: 10px;
+  }
+}
+.task-input div.textArea {
+  margin-right: 10px;
+}
+.task-input div.textArea textarea {
+  padding: 5px 10px 5px 10px;
+  border: 2px solid seagreen;
+  border-radius: 10px;
+  text-align: left;
+  text-indent: 10px;
+}
+.task-input div#save {
+  align-self: center;
+  justify-self: center;
+}
+.task-input div#save button {
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: seagreen;
+  border: 2px solid saddlebrown;
+  padding: 5px 20px 5px 20px;
+}
+.task-input div#save button:hover {
+  background-color: khaki;
+  cursor: pointer;
+}
+.task-input div.foot-message {
+  grid-column: span 2;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+@media screen and (max-width: 960px) {
+  .task-input div.foot-message {
+    grid-column: span 1;
+  }
 }
 
 li.taskTitle {
   display: grid;
   grid-template-columns: 2fr 10%;
-  justify-content: left;
+  justify-content: center;
   text-align: left;
   list-style: decimal-leading-zero;
   font-weight: bold;
@@ -47,7 +110,8 @@ ul.subTask {
   background-color: none;
 }
 ul.subTask li {
-  list-style: disc;
+  list-style-type: circle;
+  list-style-position: inside;
   font-weight: normal;
   font-size: normal;
   text-transform: none;
@@ -69,73 +133,4 @@ img.stopprop {
 
 img.deleteTask:hover {
   cursor: pointer;
-}
-
-.task-input, .task-input-move {
-  display: grid;
-  width: 50%;
-  margin: 20px auto;
-  grid-template-columns: 80% 10%;
-  justify-content: center;
-  align-items: center;
-  border-top: 4px solid seagreen;
-  border-bottom: 2px solid seagreen;
-  background-color: coral;
-  position: absolute;
-  bottom: 0;
-  left: 25%;
-}
-.task-input textarea, .task-input-move textarea {
-  padding: 5px 10px 5px 10px;
-  margin: 10px;
-  height: 100px;
-  border: 2px solid crimson;
-  border-radius: 10px;
-  text-align: left;
-  width: 70%;
-  text-indent: 10px;
-}
-@media screen and (max-width: 900px) {
-  .task-input textarea, .task-input-move textarea {
-    width: 90%;
-  }
-}
-.task-input button, .task-input-move button {
-  font-weight: bold;
-  border-radius: 5px;
-  width: 100%;
-  height: 30px;
-  color: #222;
-  background-color: seagreen;
-}
-@media screen and (max-width: 900px) {
-  .task-input button, .task-input-move button {
-    width: 40%;
-  }
-}
-.task-input button:hover, .task-input-move button:hover {
-  background-color: yellow;
-  cursor: pointer;
-}
-@media screen and (max-width: 900px) {
-  .task-input, .task-input-move {
-    grid-template-columns: 80%;
-  }
-}
-
-.task-input-move {
-  animation-name: move_task forwards;
-  animation-duration: 1s;
-  animation-timing-function: ease;
-  animation-iteration-count: 1;
-  bottom: -200px;
-}
-
-@keyframes move-task {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(100px);
-  }
 }/*# sourceMappingURL=style.css.map */

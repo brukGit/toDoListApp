@@ -13,26 +13,34 @@
         <h1>Today's to do list</h1>
         <p id="date"></p>
     </div>
-    <div class="task-container">
-        <ol class="task-main">
-            <!-- <button name="delete" class="removetask"><img src="images/trash_can.png" alt="trash can"></button> -->
-        </ol>
-    </div>
+    <section class="containerAll">
+        <div class="task-container">
+            <ol class="task-main">
+                <!-- <button name="delete" class="removetask"><img src="images/trash_can.png" alt="trash can"></button> -->
+            </ol>
+        </div>
+        
+        <!-- <div class="report" id="reportlimit"></div> -->
+        <div class="task-input">
     
-    <div class="report" id="reportlimit"></div>
-    <div class="task-input">
-
-        <div>
-            <textarea name="tasks" id="tasksUI" cols="30" rows="10" placeholder="Insert task"></textarea>
+            <div class="textArea">
+                <textarea name="tasks" id="tasksUI" cols="30" rows="10" placeholder="Insert task.."></textarea>
+                 
+            </div>
+            <div id="save">
+                <button type="submit" id="saveTasks">Save</button>                
+            </div>     
+            <div class="foot-message">
+                <!-- Love emoji is &#128151 
+             Laugh emoji is &#128516 -->
+             <p>Good luck! &#128077</p>
+            </div>      
         </div>
-        <div id="save">
-            <button type="submit" id="saveTasks">Save</button>
-        </div>
-        <!-- Love emoji is &#128151 
-    Laugh emoji is &#128516 -->
-        <div id="wish">Good luck! &#128077</div>
-       
-    </div>
+        
+        
+           
+    </section>
+    
     
     
     <script src="script.js"></script>

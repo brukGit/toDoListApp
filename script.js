@@ -43,22 +43,27 @@ displayDate();
 
 function addTask(){
     elTask = document.querySelector('ol.task-main')
-    let elList = document.createElement('li')
+    
 
     if(index%2!=0){
         let elUlist = document.createElement('ul')
+       
        
         const items = elUI.value.split("\n");
         let html = "";
         for (let i = 0; i < items.length; i++) {
             // see if new line has content.
             if(items[i].length>0){
-                html += "<li>" + items[i] + "</li>";
+                // html += "<li>" + items[i] + "</li>";
+                let elList = document.createElement('li')
+                elList.append(items[i])
+                elUlist.append(elList)
+                console.log('I\'m in newline check')
             }        
         }
-        elList.innerHTML = html;
+        // elList.innerHTML = html;
         elUlist.setAttribute('class','subTask')
-        elUlist.append(elList)
+        // elUlist.append(elList)
 
         
        // bullet poins categroy
@@ -70,6 +75,7 @@ function addTask(){
 
     }
     else {
+        let elList = document.createElement('li')
        
         elList.innerText = elUI.value 
         elList.setAttribute('class','taskTitle') 
@@ -110,25 +116,7 @@ function addTask(){
     elUI.value = ''
     //refocus on textArea
     setup()
-    // See if the text area should move down the window
-    let elTaskContainer = document.querySelector('.task-container')
-    let elTaskInputs = document.querySelector('.task-input')
-    let elReport = document.getElementById('reportlimit')
-    // elReport.innerText = elTaskContainer.offsetHeight
-    
-    let bottomOfTaskContainer = elTaskContainer.getBoundingClientRect().bottom
-    let topOfTaskInputs = elTaskInputs.getBoundingClientRect().top
-    
-    elReport.innerText = bottomOfTaskContainer + ', ' + topOfTaskInputs
-    if (bottomOfTaskContainer >= topOfTaskInputs-50){
-        // How to access the move attributes - positioning?
-        elTaskInputs.classList.add('task-input-move')
-        
-    }
-   
-    
-   
-   
+       
 }
 
 function setup(){
