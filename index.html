@@ -10,6 +10,7 @@
 </head>
 <body>
     <div class="header">
+        <img src="images/puzzle designs.png" alt="puzzle logo." class="imglogo">
         <h1>Today's to do list</h1>
         <p id="date"></p>
     </div>
@@ -20,15 +21,15 @@
             </ol>
         </div>
         
-        <!-- <div class="report" id="reportlimit"></div> -->
         <div class="task-input">
     
             <div class="textArea">
                 <textarea name="tasks" id="tasksUI" cols="30" rows="10" placeholder="Insert task.."></textarea>
                  
             </div>
-            <div id="save">
-                <button type="submit" id="saveTasks">Save</button>                
+            <div id="controlInput">
+                <button type="submit" id="addTasks">Add Task</button>  
+                <button type="submit" id="saveTasks">Save</button>               
             </div>     
             <div class="foot-message">
                 <!-- Love emoji is &#128151 
@@ -43,6 +44,6 @@
     
     
     
-    <script src="script.js"></script>
+    <script type="module" defer src="script.js"></script>
 </body>
 </html>

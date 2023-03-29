@@ -17,12 +17,34 @@ body{
 }
 .header {
     margin-bottom: 20px;
-    background: linear-gradient(to right, cs.$bg-color-body, cs.$bg-color-header, cs.$color-body,cs.$bg-color-body);
+    background: linear-gradient(to right,cs.$bg-color-body, #cc9966,#cc9966, cs.$bg-color-header, cs.$color-body,cs.$bg-color-body);
     width: 80%;
     margin: 0 10% 20px 10%;
     color: cs.$color-header;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-content: center;
     h1{
         color: cs.$color-h1;
+       
+        
+    }
+    .imglogo{
+        width: 80px;
+        height: 80px;
+        // margin-left: 20%;
+    }
+    p{
+        grid-column: 2/ span 1;
+       
+    }
+    @include mq.mobileScreen{
+        grid-template-columns: auto;
+                
+        p{
+            grid-column: 1/span 1;
+        }
     }
 }
 section.containerAll{
@@ -77,7 +99,7 @@ section.containerAll{
         }
        
     }
-    div#save {
+    div#controlInput {
        
         // margin-top: 10px;
         align-self: center;
@@ -91,7 +113,8 @@ section.containerAll{
             // color: cs.$color-tasks;
             background-color: cs.$bg-color-textArea;
             border: 2px solid cs.$border-color-button;
-            padding: 5px 20px 5px 20px;
+            padding: 5px 10px 5px 10px;
+            margin: 10px;
             
     
         }

@@ -13,13 +13,32 @@ body {
 
 .header {
   margin-bottom: 20px;
-  background: linear-gradient(to right, #222, khaki, whitesmoke, #222);
+  background: linear-gradient(to right, #222, #cc9966, #cc9966, khaki, whitesmoke, #222);
   width: 80%;
   margin: 0 10% 20px 10%;
   color: #222;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  align-content: center;
 }
 .header h1 {
   color: seagreen;
+}
+.header .imglogo {
+  width: 80px;
+  height: 80px;
+}
+.header p {
+  grid-column: 2/span 1;
+}
+@media screen and (max-width: 960px) {
+  .header {
+    grid-template-columns: auto;
+  }
+  .header p {
+    grid-column: 1/span 1;
+  }
 }
 
 section.containerAll {
@@ -64,18 +83,19 @@ section.containerAll {
   text-align: left;
   text-indent: 10px;
 }
-.task-input div#save {
+.task-input div#controlInput {
   align-self: center;
   justify-self: center;
 }
-.task-input div#save button {
+.task-input div#controlInput button {
   font-weight: bold;
   border-radius: 5px;
   background-color: seagreen;
   border: 2px solid saddlebrown;
-  padding: 5px 20px 5px 20px;
+  padding: 5px 10px 5px 10px;
+  margin: 10px;
 }
-.task-input div#save button:hover {
+.task-input div#controlInput button:hover {
   background-color: khaki;
   cursor: pointer;
 }
@@ -95,7 +115,7 @@ li.taskTitle {
   grid-template-columns: 2fr 10%;
   justify-content: center;
   text-align: left;
-  list-style: decimal-leading-zero;
+  list-style: lower-latin;
   font-weight: bold;
   text-transform: uppercase;
   background-color: #353333;
