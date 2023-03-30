@@ -74,7 +74,7 @@ section.containerAll{
     display:grid;
     grid-template-columns: 1.6fr 0.5fr;
     // grid-template-rows: repeat(2fr, auto);
-    
+    padding: 30px 0 30px 0;
     justify-content: center;
     align-content: center;
     background-color: cs.$bg-color-input;
@@ -85,11 +85,7 @@ section.containerAll{
             }
     
     div.textArea{
-        // height: 20%;
-       
-        margin-right: 10px;
-       
-        
+               
         textarea{
             padding: 5px 10px 5px 10px;
             border: 2px solid cs.$bg-color-textArea;
@@ -102,9 +98,10 @@ section.containerAll{
     }
     div#controlInput {
        
-        // margin-top: 10px;
+        
         align-self: center;
         justify-self: center;
+        
        
        
         button{
@@ -160,17 +157,15 @@ li.taskTitle {
     grid-auto-rows: minmax(20px, auto);
     word-wrap: break-word;
 
-    
-    
-
     // white-space: pre-wrap;
+    
     // last resort, use word-break: break all.
     // word-break: break-all;
    
 }
 li.taskTitle:hover{
     cursor: pointer;
-    cursor:context-menu
+    cursor:context-menu;
 }
 
 ul.subTask {
