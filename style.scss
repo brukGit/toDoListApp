@@ -226,6 +226,11 @@ li.taskTitle:hover{
     cursor: pointer;
     cursor:context-menu;
 }
+li.taskTitleSelected {
+    @extend .taskTitle;
+    color: cs.$color-listSelected;
+
+}
 
 ul.subTask {
     color: cs.$color-bullets;

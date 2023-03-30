@@ -157,7 +157,7 @@ section.containerAll {
   }
 }
 
-li.taskTitle {
+li.taskTitle, li.taskTitleSelected {
   display: grid;
   grid-template-columns: 2fr 10%;
   justify-content: center;
@@ -171,9 +171,13 @@ li.taskTitle {
   word-wrap: break-word;
 }
 
-li.taskTitle:hover {
+li.taskTitle:hover, li.taskTitleSelected:hover {
   cursor: pointer;
   cursor: context-menu;
+}
+
+li.taskTitleSelected {
+  color: crimson;
 }
 
 ul.subTask {
@@ -213,4 +217,6 @@ img.stopprop {
 
 img.deleteTask:hover {
   cursor: pointer;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */

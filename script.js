@@ -201,7 +201,7 @@ function setup(){
 }
 
 elSearchButton.addEventListener('click',(event) => {
-    event.preventDefault();
+    event.preventDefault();    
     searchPage()
 })
 

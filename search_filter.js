@@ -31,7 +31,12 @@ function searchPage(){
                 elLink.setAttribute('href',`#${groupItem[1]}`)
                 elLink.innerText = groupItem[0]                                       
                 elSearchResult.append(elLink)   
-                console.log(elLink)
+                // console.log(elLink)
+                elLink.addEventListener('click', () => {
+                    const elSelected = document.getElementById(groupItem[1])
+                    // elSelected.setAttribute('class', taskTitleSelected)
+                    elSelected.style.color = 'crimson'
+                })
                                
             })
         }
