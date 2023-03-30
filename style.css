@@ -124,6 +124,11 @@ li.taskTitle {
   word-wrap: break-word;
 }
 
+li.taskTitle:hover {
+  cursor: pointer;
+  cursor: context-menu;
+}
+
 ul.subTask {
   color: khaki;
   text-align: left;
@@ -135,6 +140,14 @@ ul.subTask li {
   font-weight: normal;
   font-size: normal;
   text-transform: none;
+}
+ul.subTask li:hover {
+  cursor: context-menu;
+}
+
+li.complete {
+  text-decoration: line-through;
+  color: rgb(130, 210, 122);
 }
 
 div.delImgContainer {

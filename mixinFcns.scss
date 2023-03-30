@@ -1,0 +1,9 @@
+@mixin listStyle {
+    list-style-type: circle;
+    // font-size: 100%;
+    list-style-position:inside;
+    font-weight: normal;
+    font-size: normal;
+    text-transform: none;  
+    
+}

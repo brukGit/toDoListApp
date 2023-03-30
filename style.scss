@@ -1,6 +1,7 @@
 @use 'color_schemes' as cs;
 @use 'mediaquery' as mq;
 @use 'adjustFlex' as af;
+@use 'mixinFcns' as mf;
 
 *{
     padding: 0;
@@ -158,6 +159,8 @@ li.taskTitle {
     // this applies to both div and ul inside of it.
     grid-auto-rows: minmax(20px, auto);
     word-wrap: break-word;
+
+    
     
 
     // white-space: pre-wrap;
@@ -165,7 +168,10 @@ li.taskTitle {
     // word-break: break-all;
    
 }
-
+li.taskTitle:hover{
+    cursor: pointer;
+    cursor:context-menu
+}
 
 ul.subTask {
     color: cs.$color-bullets;
@@ -174,15 +180,16 @@ ul.subTask {
      
     
     li {
-        list-style-type: circle;
-        // font-size: 100%;
-        list-style-position:inside;
-        font-weight: normal;
-        font-size: normal;
-        text-transform: none;  
-        
+        @include mf.listStyle;    
+    }
+    li:hover{
+        cursor: context-menu       
     }
    
+}
+li.complete {
+    text-decoration: line-through;
+    color: cs.$color-complete;
 }
 div.delImgContainer{
     // display: inline-block;

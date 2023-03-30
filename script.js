@@ -17,7 +17,6 @@ elDate.innerHTML = displayDate()
 
 let elUI = document.getElementById('tasksUI');
 let elTask = document.querySelector('ol.task-main')
-let elImgs = document.querySelectorAll('img')
 let elAddTask = document.getElementById('addTasks')
 let elSaveTask = document.getElementById('saveTasks')
 
@@ -65,7 +64,7 @@ function addSubTasks(){
     
     items.forEach((item) => {
         if(item){
-            let elList = document.createElement('li')
+            let elList = createElement('li','subBullet')
             elList.append(item)
             elUlist.append(elList)
         }
@@ -159,9 +158,10 @@ elSaveTask.addEventListener('click', (event) => {
 // Delegate task to ol - main container for task lists. 
 elTask.addEventListener('click',(event)=> {
     // see if event comes from 'delete' img.
-    if(event.target.tagName === 'IMG'){
+    if(event.target.tagName === 'IMG' || event.target.tagName === 'LI'){
         removeTask(event)
     }
+   
 })
 
 // Window loading setup
@@ -175,10 +175,25 @@ function setup(){
 //  ------------------ Function that removes tasks. ----------------- //
  function removeTask(event) {   
     
-    // update list index - used for identifying main and sub task lists.
-    index -= event.target.parentElement.parentElement.children.length
-  
-    event.target.parentElement.parentElement.remove()    
+    // Remove and update list index - used for identifying main and sub task lists.
+    if(event.target.tagName === 'IMG'){
+        index -= event.target.parentElement.parentElement.children.length  
+        event.target.parentElement.parentElement.remove() 
+    }
+    // Highlight task complete with line through text-decoration
+    else {
+        // toggle class for li items
+        let parentOfLi = event.target.parentElement
+        if(parentOfLi.tagName === 'UL'){
+            // block toggling if grandParent already set to class 'complete'
+            if(! parentOfLi.parentElement.classList.value.includes('complete')){
+                event.target.classList.toggle('complete')
+            }
+                }
+        else {
+            event.target.classList.toggle('complete')
+        }             
+    }    
        
 }
 
