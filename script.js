@@ -6,6 +6,7 @@
 
 import { displayDate } from "./dategenerator.js";
 import { store_data as sd } from "./dataStore.js";
+import {searchPage} from "./search_filter.js"
 
 // Access current date and time and display on web header.
 let elDate = document.getElementById('date');
@@ -19,6 +20,9 @@ let elUI = document.getElementById('tasksUI');
 let elTask = document.querySelector('ol.task-main')
 let elAddTask = document.getElementById('addTasks')
 let elSaveTask = document.getElementById('saveTasks')
+
+let elSearchButton = document.getElementById('searchButton')
+let elSearchResult = document.querySelector('searchResult')
 
 // 'li' index counter for addTask functionalities
 let index = 0;
@@ -96,7 +100,30 @@ function addMainTask(){
     elUI.placeholder = 'Add bullet points..'
         
 }
-        
+//  ------------------ Function that removes tasks. ----------------- //
+function removeTask(event) {   
+    
+    // Remove and update list index - used for identifying main and sub task lists.
+    if(event.target.tagName === 'IMG'){
+        index -= event.target.parentElement.parentElement.children.length  
+        event.target.parentElement.parentElement.remove() 
+    }
+    // Highlight task complete with line through text-decoration
+    else {
+        // toggle class for li items
+        let parentOfLi = event.target.parentElement
+        if(parentOfLi.tagName === 'UL'){
+            // block toggling if grandParent already set to class 'complete'
+            if(! parentOfLi.parentElement.classList.value.includes('complete')){
+                event.target.classList.toggle('complete')
+            }
+                }
+        else {
+            event.target.classList.toggle('complete')
+        }             
+    }    
+       
+}       
 
 
 
@@ -172,30 +199,11 @@ function setup(){
     // focus to textArea
     elUI.focus();            
 }
-//  ------------------ Function that removes tasks. ----------------- //
- function removeTask(event) {   
-    
-    // Remove and update list index - used for identifying main and sub task lists.
-    if(event.target.tagName === 'IMG'){
-        index -= event.target.parentElement.parentElement.children.length  
-        event.target.parentElement.parentElement.remove() 
-    }
-    // Highlight task complete with line through text-decoration
-    else {
-        // toggle class for li items
-        let parentOfLi = event.target.parentElement
-        if(parentOfLi.tagName === 'UL'){
-            // block toggling if grandParent already set to class 'complete'
-            if(! parentOfLi.parentElement.classList.value.includes('complete')){
-                event.target.classList.toggle('complete')
-            }
-                }
-        else {
-            event.target.classList.toggle('complete')
-        }             
-    }    
-       
-}
+
+elSearchButton.addEventListener('click',(event) => {
+    event.preventDefault();
+    searchPage()
+})
 
 
        

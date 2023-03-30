@@ -24,21 +24,70 @@ body {
 }
 .header h1 {
   color: seagreen;
+  text-transform: uppercase;
+  padding: 20px;
+  margin-top: 10px;
 }
 .header .imglogo {
   width: 80px;
   height: 80px;
+  display: block;
+  padding: 20px;
+  margin-left: 45%;
+  margin-right: 50px;
 }
 .header p {
-  grid-column: 2/span 1;
+  grid-column: 1/span 2;
 }
 @media screen and (max-width: 960px) {
   .header {
     grid-template-columns: auto;
+    justify-content: center;
+    align-content: center;
+  }
+  .header .imglogo {
+    margin: 0 auto;
   }
   .header p {
     grid-column: 1/span 1;
   }
+}
+
+div.searchBar {
+  padding: 10px;
+  color: whitesmoke;
+}
+div.searchBar input {
+  padding: 5px;
+  margin: 10px;
+}
+div.searchBar input#searchKey {
+  width: 400px;
+  height: 50px;
+  border-radius: 10px;
+  border: 2px solid saddlebrown;
+}
+div.searchBar input#searchButton {
+  font-weight: 700;
+  border-radius: 5px;
+  background-color: seagreen;
+  border: 2px solid saddlebrown;
+  padding: 10px;
+}
+div.searchBar input#searchButton:hover {
+  background-color: khaki;
+  cursor: pointer;
+}
+
+.searchResult a {
+  color: seagreen;
+  display: block;
+  text-decoration: none;
+}
+.searchResult a:hover {
+  color: dodgerblue;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 section.containerAll {
