@@ -17,20 +17,20 @@ body{
     
 }
 .header {
-    margin-bottom: 20px;
-    background: linear-gradient(to right,cs.$bg-color-body, #cc9966,#cc9966, cs.$bg-color-header, cs.$color-body,cs.$bg-color-body);
+   
     width: 80%;
+    border: 2px solid cs.$color-header;
     margin: 0 10% 20px 10%;
     color: cs.$color-header;
     display: grid;
     grid-template-columns: auto auto;
     justify-content: center;
     align-content: center;
+    align-items: center;
     h1{
         color: cs.$color-h1;
         text-transform: uppercase;
-        padding: 20px;
-        margin-top: 10px;
+            
        
         
     }
@@ -38,13 +38,17 @@ body{
         width: 80px;
         height: 80px;
         display: block;
-        padding: 20px;
+        padding: 0px 20px;
         margin-left: 45%;
         margin-right: 50px;
-        // margin-left: 20%;
+       
     }
     p{
+        margin-top: 0;
+        color: cs.$bg-color-body;
+        background-color: cs.$bg-color-textArea;
         grid-column: 1/ span 2;
+       
        
     }
     @include mq.mobileScreen{
@@ -112,8 +116,7 @@ section.containerAll{
     flex-wrap: wrap;
     // display: grid;
     margin: 20px 40px 20px 40px;
-    // grid-template-columns: 1fr 0.8fr;
-    // border: 2px solid rgb(225, 28, 215);
+   
     justify-content: center;
     align-items: center;
 }
@@ -136,7 +139,7 @@ section.containerAll{
     padding: 30px 0 30px 0;
     justify-content: center;
     align-content: center;
-    background-color: cs.$bg-color-input;
+    background-color: cs.$bg-color-header;
     border: 2px solid cs.$bg-color-input;
     @include mq.mobileScreen{
                grid-template-columns: auto;
@@ -184,9 +187,14 @@ section.containerAll{
     div.foot-message{
         grid-column: span 2;
         
-        text-decoration: underline;
-        // this one below does not exist on some browsers.
-        text-underline-offset: 5px;
+       
+        p {
+            color: cs.$color-header;
+            text-decoration: underline;
+            // this one below does not exist on some browsers.
+            text-underline-offset: 5px;
+    
+        }
         @include mq.mobileScreen{
             // to make the changes on the main grid effective, 
             //  re-adapting the span length to 1 is needed. 

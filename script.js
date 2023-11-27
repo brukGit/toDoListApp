@@ -116,6 +116,7 @@ function removeTask(event) {
             // block toggling if grandParent already set to class 'complete'
             if(! parentOfLi.parentElement.classList.value.includes('complete')){
                 event.target.classList.toggle('complete')
+                
             }
                 }
         else {
