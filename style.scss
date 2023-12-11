@@ -29,7 +29,7 @@ body{
     margin: 20px auto 20px auto;
     color: cs.$color-header;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     justify-content: center;
     align-content: center;
     align-items: center;
@@ -37,26 +37,30 @@ body{
     color: cs.$color-body;
     h1{
         font-size: fs.$font-large;
+        display: inline-block;
+        margin-right: 100px;
         
         text-transform: uppercase;           
        
         
     }
     .imglogo{
-        width: 80px;
-        height: 80px;
+        width: 120px;
+        height: 120px;
         display: block;
-        padding: 0px 20px;
+      
               
     }
-    p{
-        margin-top: 0;
-        grid-column: 1/ span 2;
+    span{
+        // margin-top: 0;
+        // grid-column: 1/ span 2;
+        
+        display: inline-block;
         font-size: fs.$font-small;
        
        
     }
-    @include mq.mobileScreen{
+    @include mq.smallScreen{
         grid-template-columns: auto;        
         .imglogo{
             margin: 0 auto;
@@ -119,7 +123,10 @@ section.containerAll{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: 2%;
+    margin: 2%;
+    @include mq.smallScreen{
+        flex-direction: column;
+    }
   }
 .task-container {
     flex: 1;  
@@ -141,7 +148,7 @@ section.containerAll{
     align-content: center;
     background-color: cs.$bg-color-header;
     border: 1px solid cs.$color-body;
-    @include mq.mobileScreen{
+    @include mq.smallScreen{
                grid-template-columns: auto;
                margin-top: 10px;
             }
@@ -199,7 +206,7 @@ section.containerAll{
             text-underline-offset: 5px;
     
         }
-        @include mq.mobileScreen{
+        @include mq.smallScreen{
             // to make the changes on the main grid effective, 
             //  re-adapting the span length to 1 is needed. 
             grid-column: span 1;
@@ -238,9 +245,6 @@ li.taskTitle {
         color: cs.$color-accent;
     }
 
-    &.taskTitleSelected{
-        color: cs.$color-listSelected;
-    }
    
 }
 

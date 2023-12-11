@@ -1,4 +1,4 @@
- // ---------------- fcn that stores data on the ocal storage  ------------------------  //
+ // ---------------- fcn that stores data on the local storage  ------------------------  //
 function store_data(){
     
     let allTasks = document.querySelector('ol')

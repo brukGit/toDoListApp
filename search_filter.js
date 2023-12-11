@@ -16,6 +16,7 @@ function searchPage(){
                 if(item.toLowerCase().includes(keywords.toLowerCase())){
                     // index is used to link with ID as ref during using clicking.
                     filteredArray.push([item,index])
+                    list.addattribut
                 }
             })
             // Set ID for linking up with source.
@@ -33,9 +34,9 @@ function searchPage(){
                 elSearchResult.append(elLink)   
                 // console.log(elLink)
                 elLink.addEventListener('click', () => {
+                    console.log(groupItem[1]);
                     const elSelected = document.getElementById(groupItem[1])
-                    // elSelected.setAttribute('class', taskTitleSelected)
-                    elSelected.style.color = 'black'
+                    elSelected.style.color = 'dodgerblue'
                 })
                                
             })

@@ -22,6 +22,6 @@
     }
 
     return daysofweek[day] + ', ' + monthsofyr[month] +
-    ' ' +date + ' '+year + '<br>' + '@ ' +  hour + ': '+minute + ' local time.';
+    ' ' +date + ' '+year + '   , '+  hour + ': '+minute + ' local time.';
  }
  export {displayDate}
