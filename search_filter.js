@@ -35,7 +35,7 @@ function searchPage(){
                 elLink.addEventListener('click', () => {
                     const elSelected = document.getElementById(groupItem[1])
                     // elSelected.setAttribute('class', taskTitleSelected)
-                    elSelected.style.color = 'crimson'
+                    elSelected.style.color = 'black'
                 })
                                
             })

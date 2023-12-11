@@ -1,7 +1,9 @@
 @use 'color_schemes' as cs;
+@use 'font_styles' as fs;
 @use 'mediaquery' as mq;
 @use 'adjustFlex' as af;
 @use 'mixinFcns' as mf;
+
 
 *{
     padding: 0;
@@ -12,25 +14,31 @@ body{
     background-color: cs.$bg-color-body;
     color: cs.$color-body;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 120%;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     
 }
 .header {
    
-    width: 80%;
+    width: 90%;
     border: 2px solid cs.$color-header;
-    margin: 0 10% 20px 10%;
+    border-radius: 10px;
+    margin: 20px auto 20px auto;
     color: cs.$color-header;
     display: grid;
     grid-template-columns: auto auto;
     justify-content: center;
     align-content: center;
     align-items: center;
+    background-color: cs.$bg-color-header;
+    color: cs.$color-body;
     h1{
-        color: cs.$color-h1;
-        text-transform: uppercase;
-            
+        font-size: fs.$font-large;
+        
+        text-transform: uppercase;           
        
         
     }
@@ -39,15 +47,12 @@ body{
         height: 80px;
         display: block;
         padding: 0px 20px;
-        margin-left: 45%;
-        margin-right: 50px;
-       
+              
     }
     p{
         margin-top: 0;
-        color: cs.$bg-color-body;
-        background-color: cs.$bg-color-textArea;
         grid-column: 1/ span 2;
+        font-size: fs.$font-small;
        
        
     }
@@ -65,8 +70,7 @@ body{
 }
 div.searchBar{
     padding: 10px;
-    color: cs.$color-body;
-  
+    
     input {
         padding: 5px;
         margin: 10px;     
@@ -75,19 +79,22 @@ div.searchBar{
         width: 400px;
         height: 50px;
         border-radius: 10px;
-        // background-color: cs.$bg-color-textArea;
-        border: 2px solid cs.$border-color-button;
-        // color: cs.$color-body;
+        border: 1px solid cs.$color-accent;
+        color: cs.$color-body;
     }
     input#searchButton{
         font-weight: 700;
         border-radius: 5px;
-        background-color: cs.$bg-color-textArea;
-        border: 2px solid cs.$border-color-button;
-        padding: 10px;
+        background-color: cs.$bg-color-header;
+        color: cs.$color-body;
+        border: 1px solid ;
+        padding: 10px 40px;
     }
     input#searchButton:hover{
-        background-color: cs.$bg-color-header;
+        background-color: cs.$color-accent;
+        color: cs.$color-body;
+        border-color: cs.$color-body;
+        font-weight: bold;
         cursor: pointer;
     }
    
@@ -95,7 +102,7 @@ div.searchBar{
 
 .searchResult {
     a {
-        color: cs.$color-h1;
+        color: cs.$color-body;
         display: block;
         text-decoration: none;
     }
@@ -106,41 +113,34 @@ div.searchBar{
     }
 }
 
-
-
-
-
-
 section.containerAll{
     display: flex;
     flex-wrap: wrap;
-    // display: grid;
-    margin: 20px 40px 20px 40px;
-   
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-}
+    margin-top: 2%;
+  }
 .task-container {
-    flex: 1 0 50%;   
+    flex: 1;  
     justify-content: center;
     align-content: center;
-    // margin-bottom: 20px;
-    min-height: 50vh;
+    min-height: 40vh;
     padding: 10px;
-    border: 2px solid salmon;
+    border: 2px solid cs.$color-body;
+    margin-right: 5%;
+    
 }
 
 .task-input{
-    flex: 1 0 30%;
-    
+    flex: 1;    
     display:grid;
     grid-template-columns: 1.6fr 0.5fr;
-    // grid-template-rows: repeat(2fr, auto);
-    padding: 30px 0 30px 0;
+    padding: 10px;
     justify-content: center;
     align-content: center;
     background-color: cs.$bg-color-header;
-    border: 2px solid cs.$bg-color-input;
+    border: 1px solid cs.$color-body;
     @include mq.mobileScreen{
                grid-template-columns: auto;
                margin-top: 10px;
@@ -150,7 +150,7 @@ section.containerAll{
                
         textarea{
             padding: 5px 10px 5px 10px;
-            border: 2px solid cs.$bg-color-textArea;
+            border: 1px solid cs.$color-accent;
             border-radius: 10px;   
             text-align: left;
             text-indent: 10px;
@@ -161,27 +161,32 @@ section.containerAll{
     div#controlInput {
        
         
-        align-self: center;
-        justify-self: center;
+        // align-self: center;
+        // justify-self: center;
         
        
        
         button{
         
-            font-weight: bold;
+            // font-weight: bold;
             border-radius: 5px;        
-            // color: cs.$color-tasks;
-            background-color: cs.$bg-color-textArea;
-            border: 2px solid cs.$border-color-button;
-            padding: 5px 10px 5px 10px;
+            background-color: cs.$bg-color-header;
+            color: cs.$color-body;
+            border: 1px solid cs.$color-body;
+            font-weight: 700;
+            padding: 5px 10px;
             margin: 10px;
+            text-align: center;
+
+            &:hover{
+                background-color: cs.$color-accent;
+                cursor: pointer;
+
+            }
             
     
         }
-        button:hover{
-            background-color: cs.$bg-color-header;
-            cursor: pointer;
-        }
+       
         
     }
     div.foot-message{
@@ -191,7 +196,6 @@ section.containerAll{
         p {
             color: cs.$color-header;
             text-decoration: underline;
-            // this one below does not exist on some browsers.
             text-underline-offset: 5px;
     
         }
@@ -213,7 +217,8 @@ li.taskTitle {
     list-style:lower-latin;
     font-weight: bold;
     text-transform: uppercase;
-    background-color: cs.$bg-color-tasks;
+    background-color: cs.$bg-color-header;
+    color: cs.$color-body;
     margin-bottom: 1%;
 
     // Adapt so long texts can start on new-line
@@ -224,40 +229,41 @@ li.taskTitle {
     grid-auto-rows: minmax(20px, auto);
     word-wrap: break-word;
 
-    // white-space: pre-wrap;
+    &:hover{
+        cursor: pointer;
+        cursor:context-menu;
+    }
+    &.complete {
+        text-decoration: line-through;
+        color: cs.$color-accent;
+    }
 
-    // last resort, use word-break: break all.
-    // word-break: break-all;
+    &.taskTitleSelected{
+        color: cs.$color-listSelected;
+    }
    
-}
-li.taskTitle:hover{
-    cursor: pointer;
-    cursor:context-menu;
-}
-li.taskTitleSelected {
-    @extend .taskTitle;
-    color: cs.$color-listSelected;
-
 }
 
 ul.subTask {
-    color: cs.$color-bullets;
+    color: cs.$color-body;
     text-align: left;
     background-color: none;
      
     
     li {
         @include mf.listStyle;    
+        &:hover{
+            cursor: context-menu       
+        }
+        &.complete {
+            text-decoration: line-through;
+            color: cs.$color-accent;
+        }
     }
-    li:hover{
-        cursor: context-menu       
-    }
+    
    
 }
-li.complete {
-    text-decoration: line-through;
-    color: cs.$color-complete;
-}
+
 div.delImgContainer{
     // display: inline-block;
     justify-content: center;
@@ -271,7 +277,7 @@ img.deleteTask{
      
     }
 img.stopprop{
-    background-color: cs.$color-warning;
+    background-color: cs.$color-accent;
 }
 img.deleteTask:hover{
     cursor: pointer;
