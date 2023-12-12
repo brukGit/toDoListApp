@@ -3,6 +3,7 @@
  // Display date
  function displayDate(){
     // Get date
+    let dateContainer = [];
     let today = new Date();
     
     let date = today.getDate();
@@ -12,6 +13,7 @@
     let year = today.getFullYear();
     hour = today.getHours();
     let minute = today.getMinutes();
+    let second = today.getSeconds();
 
     let daysofweek = ['Sun', 'Mon', 'Tue','Wed','Thur','Fri','Sat','Sun'];
     let monthsofyr = ['Jan','Feb','Mar','Apr','May','Jun',
@@ -20,8 +22,11 @@
     if (minute<10){
         minute = '0' + minute;
     }
+    let tempDate =daysofweek[day] + ', ' + ' ' +date +'/'+monthsofyr[month]+'/'+year
+    let tempTime =hour + " o'clock and " +minute +' minutes';
+    dateContainer.push(tempDate);
+    dateContainer.push(tempTime);
 
-    return daysofweek[day] + ', ' + monthsofyr[month] +
-    ' ' +date + ' '+year + '   , '+  hour + ': '+minute + ' local time.';
+    return  dateContainer;
  }
  export {displayDate}

@@ -34,9 +34,10 @@ function searchPage(){
                 elSearchResult.append(elLink)   
                 // console.log(elLink)
                 elLink.addEventListener('click', () => {
-                    console.log(groupItem[1]);
                     const elSelected = document.getElementById(groupItem[1])
-                    elSelected.style.color = 'dodgerblue'
+                    elSelected.style.color = 'dodgerblue';
+                    elSelected.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
                 })
                                
             })

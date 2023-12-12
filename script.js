@@ -10,7 +10,10 @@ import {searchPage} from "./search_filter.js"
 
 // Access current date and time and display on web header.
 let elDate = document.getElementById('date');
-elDate.innerHTML = displayDate()
+let elTime = document.getElementById('time');
+let temp = displayDate()
+elTime.innerHTML = temp.pop();
+elDate.innerHTML = temp.pop();
 
 
 // ------------------ GLOBAL VARIABLES --------------------------------- //
@@ -22,6 +25,7 @@ let elAddTask = document.getElementById('addTasks')
 let elSaveTask = document.getElementById('saveTasks')
 
 let elSearchButton = document.getElementById('searchButton')
+let elSearchKey = document.getElementById('searchKey')
 let elSearchResult = document.querySelector('searchResult')
 
 // 'li' index counter for addTask functionalities
@@ -201,9 +205,22 @@ function setup(){
     elUI.focus();            
 }
 
+elSearchKey.addEventListener('input',(event) => {
+    let keywords = elSearchKey.value.trim(); // trim() removes leading and trailing whitespaces
+    if (!keywords) {
+        // If it's empty or contains only whitespaces, navigate to the home page
+        
+        window.location.href = 'http://127.0.0.1:5500';
+    }
+
+})
+
+
 elSearchButton.addEventListener('click',(event) => {
     event.preventDefault();    
-    searchPage()
+    searchPage();
+   
+    
 })
 
 

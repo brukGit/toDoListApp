@@ -5,12 +5,12 @@
 @use 'mixinFcns' as mf;
 
 
-*{
+* {
     padding: 0;
     margin: 0;
 }
 
-body{
+body {
     background-color: cs.$bg-color-body;
     color: cs.$color-body;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -19,67 +19,96 @@ body{
     align-items: center;
     display: flex;
     flex-direction: column;
-    
+
 }
+
 .header {
-   
+
     width: 90%;
     border: 2px solid cs.$color-header;
     border-radius: 10px;
     margin: 20px auto 20px auto;
     color: cs.$color-header;
-    display: grid;
-    grid-template-columns: auto auto auto;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-content: center;
     align-items: center;
     background-color: cs.$bg-color-header;
     color: cs.$color-body;
-    h1{
+
+    h1 {
         font-size: fs.$font-large;
         display: inline-block;
-        margin-right: 100px;
-        
-        text-transform: uppercase;           
-       
-        
+      
+
+        text-transform: uppercase;
+
+
     }
-    .imglogo{
+
+    .imglogo {
         width: 120px;
         height: 120px;
         display: block;
-      
-              
+        margin-left: 10%;
+
+
     }
-    span{
-        // margin-top: 0;
-        // grid-column: 1/ span 2;
-        
-        display: inline-block;
+    p{
+        margin-left: 10%; 
+        color: cs.$color-listSelected;
         font-size: fs.$font-small;
-       
-       
+        span {
+            display: inline-block;
+            font-size: fs.$font-small;
+            font-weight: bold;
+    
+    
+        }
+    
+
     }
-    @include mq.smallScreen{
-        grid-template-columns: auto;        
-        .imglogo{
+    
+    @include mq.smallScreen {
+        grid-template-columns: auto;
+
+        .imglogo {
             margin: 0 auto;
-        }      
-        p{
+        }
+
+        p {
             grid-column: 1/span 1;
         }
+
         justify-content: center;
         align-content: center;
     }
 }
-div.searchBar{
-    padding: 10px;
-    
-    input {
-        padding: 5px;
-        margin: 10px;     
+.buttons {
+    padding: 10px 40px;
+    margin: 10px;
+    font-weight: 700;
+    border-radius: 5px;
+    background-color: cs.$bg-color-header;
+    color: cs.$color-body;
+    border: 1px solid;
+
+    &:hover {
+        background-color: cs.$color-accent;
+        color: cs.$bg-color-body;
+        border-color: cs.$color-body;
+        font-weight: bold;
+        cursor: pointer;
     }
-    input#searchKey{
+}
+
+div.searchBar {
+    padding: 10px;
+
+    input#searchKey {
+        padding: 5px;
+        margin: 10px;
         width: 400px;
         height: 50px;
         border-radius: 10px;
@@ -87,22 +116,13 @@ div.searchBar{
         color: cs.$color-body;
     }
     input#searchButton{
-        font-weight: 700;
-        border-radius: 5px;
-        background-color: cs.$bg-color-header;
-        color: cs.$color-body;
-        border: 1px solid ;
-        padding: 10px 40px;
+        @extend .buttons;
     }
-    input#searchButton:hover{
-        background-color: cs.$color-accent;
-        color: cs.$color-body;
-        border-color: cs.$color-body;
-        font-weight: bold;
-        cursor: pointer;
-    }
-   
+
 }
+
+
+
 
 .searchResult {
     a {
@@ -110,109 +130,106 @@ div.searchBar{
         display: block;
         text-decoration: none;
     }
-    a:hover{
+
+    a:hover {
         color: cs.$color-highlight;
         cursor: pointer;
         text-decoration: underline;
     }
 }
 
-section.containerAll{
+section.containerAll {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     margin: 2%;
-    @include mq.smallScreen{
+
+    @include mq.smallScreen {
         flex-direction: column;
     }
-  }
+}
+
 .task-container {
-    flex: 1;  
+    flex: 1.2;
     justify-content: center;
     align-content: center;
     min-height: 40vh;
     padding: 10px;
     border: 2px solid cs.$color-body;
-    margin-right: 5%;
-    
+    margin: 0 2% 0 5%;
 }
 
-.task-input{
-    flex: 1;    
-    display:grid;
-    grid-template-columns: 1.6fr 0.5fr;
+.task-input {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
     padding: 10px;
     justify-content: center;
     align-content: center;
     background-color: cs.$bg-color-header;
     border: 1px solid cs.$color-body;
-    @include mq.smallScreen{
-               grid-template-columns: auto;
-               margin-top: 10px;
-            }
-    
-    div.textArea{
-               
-        textarea{
-            padding: 5px 10px 5px 10px;
+
+    @include mq.smallScreen {
+        grid-template-columns: auto;
+        margin-top: 10px;
+    }
+
+    div.textArea {
+
+        textarea {
+            padding: 5px 10px;
             border: 1px solid cs.$color-accent;
-            border-radius: 10px;   
+            border-radius: 10px;
             text-align: left;
             text-indent: 10px;
-              
+            min-width: 80%;
+
         }
-       
+
     }
+
     div#controlInput {
-       
-        
-        // align-self: center;
-        // justify-self: center;
-        
-       
-       
-        button{
-        
-            // font-weight: bold;
-            border-radius: 5px;        
-            background-color: cs.$bg-color-header;
-            color: cs.$color-body;
-            border: 1px solid cs.$color-body;
-            font-weight: 700;
-            padding: 5px 10px;
-            margin: 10px;
-            text-align: center;
 
-            &:hover{
-                background-color: cs.$color-accent;
-                cursor: pointer;
-
-            }
-            
-    
+        button {
+            @extend .buttons;
+            padding: 10px 20px;
+            margin-left: 2%;
         }
-       
-        
+
     }
-    div.foot-message{
-        grid-column: span 2;
-        
-       
+
+    div.foot-message {
+       grid-column: span 2;
+       margin-top: 2%;
+       margin-left: 25%;
+       width: 50%;
+       background-color: cs.$bg-color-body;
+       border: 1px solid cs.$color-body;
+       border-radius: 5px;
+       padding: 5px 0;
+
+
         p {
             color: cs.$color-header;
-            text-decoration: underline;
-            text-underline-offset: 5px;
-    
+            // text-decoration: underline;
+            @supports (-moz-text-underline-offset: 5px) or (text-underline-offset: 5px) {
+                -moz-text-underline-offset: 5px;            
+                text-underline-offset: 5px;
+            }
         }
-        @include mq.smallScreen{
+       
+        @include mq.smallScreen {
             // to make the changes on the main grid effective, 
             //  re-adapting the span length to 1 is needed. 
             grid-column: span 1;
-         }
+        }
     }
-  
+
+}
+.blue-emoji{
+    fill: cs.$color-accent;
 }
 
 li.taskTitle {
@@ -221,7 +238,7 @@ li.taskTitle {
     grid-template-columns: 2fr 10%;
     justify-content: center;
     text-align: left;
-    list-style:lower-latin;
+    list-style: lower-latin;
     font-weight: bold;
     text-transform: uppercase;
     background-color: cs.$bg-color-header;
@@ -230,61 +247,65 @@ li.taskTitle {
 
     // Adapt so long texts can start on new-line
     // as they hit the edge of the li box or grid.
-   
+
     // set minimum and maximum row size for the cells.
     // this applies to both div and ul inside of it.
     grid-auto-rows: minmax(20px, auto);
     word-wrap: break-word;
 
-    &:hover{
+    &:hover {
         cursor: pointer;
-        cursor:context-menu;
+        cursor: context-menu;
     }
+
     &.complete {
         text-decoration: line-through;
         color: cs.$color-accent;
     }
 
-   
+
 }
 
 ul.subTask {
     color: cs.$color-body;
     text-align: left;
     background-color: none;
-     
-    
+
+
     li {
-        @include mf.listStyle;    
-        &:hover{
-            cursor: context-menu       
+        @include mf.listStyle;
+
+        &:hover {
+            cursor: context-menu
         }
+
         &.complete {
             text-decoration: line-through;
             color: cs.$color-accent;
         }
     }
-    
-   
+
+
 }
 
-div.delImgContainer{
+div.delImgContainer {
     // display: inline-block;
     justify-content: center;
     align-items: center;
-   
-    
-    }
-img.deleteTask{
+
+
+}
+
+img.deleteTask {
     height: 20px;
     width: 20px;
-     
-    }
-img.stopprop{
+
+}
+
+img.stopprop {
     background-color: cs.$color-accent;
 }
-img.deleteTask:hover{
+
+img.deleteTask:hover {
     cursor: pointer;
 }
-
-
