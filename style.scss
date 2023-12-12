@@ -164,6 +164,7 @@ section.containerAll {
 
 .task-input {
     flex: 1;
+    flex-wrap: wrap;
     display: grid;
     grid-template-columns: 2fr 1fr;
     padding: 10px;
@@ -197,6 +198,7 @@ section.containerAll {
             @extend .buttons;
             padding: 10px 20px;
             margin-left: 2%;
+            // display: block;
         }
 
     }

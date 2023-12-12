@@ -130,6 +130,7 @@ section.containerAll {
 
 .task-input {
   flex: 1;
+  flex-wrap: wrap;
   display: grid;
   grid-template-columns: 2fr 1fr;
   padding: 10px;
