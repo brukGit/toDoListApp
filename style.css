@@ -127,6 +127,11 @@ section.containerAll {
   border: 2px solid #222222;
   margin: 0 2% 0 5%;
 }
+@media screen and (max-width: 680px) {
+  .task-container {
+    width: 90%;
+  }
+}
 
 .task-input {
   flex: 1;
@@ -143,6 +148,7 @@ section.containerAll {
   .task-input {
     grid-template-columns: auto;
     margin-top: 10px;
+    width: 90%;
   }
 }
 .task-input div.textArea textarea {
@@ -152,6 +158,11 @@ section.containerAll {
   text-align: left;
   text-indent: 10px;
   min-width: 80%;
+}
+@media screen and (max-width: 680px) {
+  .task-input div.textArea textarea {
+    width: 90%;
+  }
 }
 .task-input div#controlInput button {
   padding: 10px 20px;
