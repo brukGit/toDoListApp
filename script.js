@@ -205,15 +205,21 @@ function setup(){
     elUI.focus();            
 }
 
-elSearchKey.addEventListener('input',(event) => {
-    let keywords = elSearchKey.value.trim(); // trim() removes leading and trailing whitespaces
-    if (!keywords) {
-        // If it's empty or contains only whitespaces, navigate to the home page
-        
-        window.location.href = 'https://brukgit.github.io/toDoListApp/'
-    }
+elSearchKey.addEventListener('input', (event) => {
+    let keywords = elSearchKey.value.trim();
 
-})
+    if (!keywords) {
+        // If it's empty or contains only whitespaces
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            // Local development URL
+            window.location.href = 'http://localhost:5500';
+        } else {
+            // Production URL
+            window.location.href = 'https://brukgit.github.io/toDoListApp/';
+        }
+    }
+});
+
 
 
 elSearchButton.addEventListener('click',(event) => {
