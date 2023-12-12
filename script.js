@@ -210,7 +210,7 @@ elSearchKey.addEventListener('input',(event) => {
     if (!keywords) {
         // If it's empty or contains only whitespaces, navigate to the home page
         
-        window.location.href = 'http://127.0.0.1:5500';
+        window.location.href = 'https://brukgit.github.io/toDoListApp/'
     }
 
 })
